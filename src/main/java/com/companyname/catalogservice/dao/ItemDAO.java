@@ -64,24 +64,16 @@ public class ItemDAO {
  
     public Item updateItem(Item item) {
         if (itemsMap.get(item.getId()) != null) {
-            itemsMap.get(item.getId()).setName(item.getName());
-            itemsMap.get(item.getId()).setDescription(item.getDescription());
-            itemsMap.get(item.getId()).setPrice(item.getPrice());
-            itemsMap.get(item.getId()).setCategories(item.getCategories());
-            itemsMap.get(item.getId()).setImages(item.getImages());
+            if(item.getName() != null) itemsMap.get(item.getId()).setName(item.getName());
+            if(item.getDescription() != null) itemsMap.get(item.getId()).setDescription(item.getDescription());
+            if(item.getPrice() != null) itemsMap.get(item.getId()).setPrice(item.getPrice());
+            if(!item.getCategories().isEmpty()) itemsMap.get(item.getId()).setCategories(item.getCategories());
+            if(!item.getImages().isEmpty()) itemsMap.get(item.getId()).setImages(item.getImages());
         } /*else {
             itemsMap.put(item.getId(), item);
         }*/
         return itemsMap.get(item.getId());
     }
- 
-    /*public Item deleteItem(int id) {
-        if (itemsMap.containsKey(id)) {
-            Item itemResponse = itemsMap.remove(id);
-            return itemResponse;
-        }
-        return null;
-    }*/
     
     public Item deleteItem(int id) {
         Item itemResponse = itemsMap.remove(id);
