@@ -27,6 +27,15 @@ public class Item {
         images = new LinkedList<>();
     }
 
+    public Item(int id, String name, String description, BigDecimal price, List<Category> categories, List<URI> images) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.categories = categories;
+        this.images = images;
+    }
+
     public Integer getId() {
         return id;
     }
